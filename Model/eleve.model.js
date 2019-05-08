@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const NoteSchema = mongoose.Schema({
-    id:Number,
+const EleveSchema = mongoose.Schema({
+    _id: {type:Number,required:true},
     nom: String,
     prenom: String,
     age :Number,
@@ -9,5 +9,6 @@ const NoteSchema = mongoose.Schema({
 }, {
     timestamps: true
 });
+/* _id: {type:Number,required:true} */
 
-module.exports = mongoose.model('eleve', NoteSchema);
+module.exports = mongoose.model('eleve', EleveSchema);
