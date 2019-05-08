@@ -5,7 +5,10 @@ const ProfSchema = mongoose.Schema({
     nom: String,
     prenom: String,
     matiere:String,
-    classe:Number
+    classe:{
+        classe1: Number,
+        classe2: Number
+    }
 }, {
     timestamps: true
 });

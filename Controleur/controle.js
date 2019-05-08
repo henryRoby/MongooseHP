@@ -101,11 +101,17 @@ module.exports.PosteEleve = function(req,res) {
                     
                 
                 }
-                Prof.find({classe:note[0].classe})
+                Prof.find()
                 .then(prof=>{
+                    for(let i =0 ;i< prof.length ;i++){
+                       for(let prop in prof[i].classe){
+                           if(note[0].classe == prof[i].classe[prop]){
+                               note.push(prof[i])
+                           }
+                       }
+                    }
                     console.log("voici prof",prof," voici eleve classe",note[0].classe);
-                    
-                    note.push(prof)
+                
                     res.send(note);
                 })
                 .catch (e =>{
