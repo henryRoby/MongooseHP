@@ -21,7 +21,7 @@ module.exports.PosteEleve = function(req,res) {
                 }
 
             const insert = new Eleve({_id:id,nom:nom,prenom:prenom,age:age,classe:classe});
-            (!nom || !prenom)? console.log("reussi"):insert.save()
+            (!nom || !prenom)? console.log(" nom reussi"):insert.save()
                 .then(()=>{
                     Eleve.find()
                         .then(note=>{
@@ -50,7 +50,6 @@ module.exports.PosteEleve = function(req,res) {
     module.exports.PosteProf = function(req,res) {
    
         var nom = req.body.nom
-        
         var prenom = req.body.prenom
         var matiere  = req.body.matiere
          var classe = req.body.classe
@@ -64,7 +63,7 @@ module.exports.PosteEleve = function(req,res) {
                     id = parseInt(note[note.length-1].id)+1;
                 }
     
-                const insert = new Prof({_id:id,nom:nom,prenom:prenom,matiere:matiere,classe:classe});
+                const insert = new Prof({nom:nom,prenom:prenom,matiere:matiere,classe:classe});
                 (!nom || !prenom)? console.log("manque des données"):insert.save()
                     .then(()=>{
                         Prof.find()
@@ -117,8 +116,6 @@ module.exports.PosteEleve = function(req,res) {
                 .catch (e =>{
                     res.status(500).send({mes:e.mes || "erreur prof"})
                 });
-
-
                 
             }).catch(err => {
                 if(err.kind === 'ObjectId') {
