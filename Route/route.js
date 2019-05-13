@@ -13,6 +13,6 @@ app.route('/eleve')
   .get(notes.GetProf)
   
 
-  app.route('/eleveProf/:id')
+  app.route('/eleve/:id')
   .get(notes.findOne)
 }
